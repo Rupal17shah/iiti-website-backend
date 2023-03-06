@@ -10,6 +10,7 @@ class ResearchSerializers(serializers.ModelSerializer):
     def create(self, validated_data):
         research = Research.objects.create(specialization=validated_data.get('specialization'),
                                            person=validated_data.get('person'),
+                                           name=validated_data.get('name'),
                                            description=validated_data.get('description'))
         return research
 

@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     "announcements",
     "events",
     "people",
-    "research"
+    "research",
+    "course",
 ]
 
 MIDDLEWARE = [

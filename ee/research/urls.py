@@ -10,4 +10,5 @@ urlpatterns = [
     path('project/read', views.GetProjectView.as_view()),
     path('labs/create', views.LabsView.as_view()),
     path('labs/read', views.GetLabsView.as_view()),
+    path('<specialization>', views.GetResearchBySpecialisation.as_view())
 ]

@@ -96,3 +96,19 @@ class GetPapersView(APIView):
             paper = ResearchSerializers(paper, many=True)
             return Response(paper.data)
         return Response({"message": "{} method is not allowed".format(request.method)})
+
+class GetResearchBySpecialisation(APIView):
+    def get(self, request, specialization):
+        if request.method == "GET":
+            try:
+                research = Research.objects.filter(specialization=specialization).values()
+                print(research)
+                people=[]
+                for i in research:
+                    if i['person'] not in people:
+                        people.append(i['person'])
+            except Research.DoesNotExist:
+                return Response({"message": "Research not found"}, status=status.HTTP_404_NOT_FOUND)
+            return Response({"research" :research, "people" : people})
+        return Response({"message": "{} method is not allowed".format(request.method)})
+

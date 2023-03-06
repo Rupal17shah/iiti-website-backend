@@ -6,6 +6,7 @@ class Research(models.Model):
     specialization = models.CharField(max_length=50)
     person = models.CharField(max_length=500)
     description = models.CharField(max_length=10000)
+    name = models.CharField(max_length=500)
 
     def __str__(self):
         return self.person
